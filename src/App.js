@@ -9,7 +9,7 @@ function App() {
   const { Configuration, OpenAIApi } = require("openai");
 
   const configuration = new Configuration({
-    apiKey: "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"
+    apiKey: "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",
   });
   const openai = new OpenAIApi(configuration);
 
@@ -20,12 +20,13 @@ function App() {
         model: "text-davinci-002",
         prompt: `Code for ${code}`,
         max_tokens: 2048,
-        temperature: 0.7
+        temperature: 0.7,
       });
       setCompletedCode(response.data.choices[0].text);
     } catch (error) {
       console.error(error);
       setCompletedCode("An error occurred");
+      setCompletedCode(error.message);
     }
   };
   return (
