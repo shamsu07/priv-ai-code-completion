@@ -6,10 +6,17 @@ function App() {
   const [code, setCode] = useState("");
   const [completedCode, setCompletedCode] = useState("");
 
+  const options = ["C", "C++", "Java", "Javascript", "Python"];
+  const [selected, setSelected] = useState(options[0]);
+
+  const handleChange = (event) => {
+    setSelected(event.target.value);
+  };
+
   const { Configuration, OpenAIApi } = require("openai");
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   const openai = new OpenAIApi(configuration);
 
@@ -18,7 +25,7 @@ function App() {
     try {
       const response = await openai.createCompletion({
         model: "text-davinci-002",
-        prompt: `Code for ${code}`,
+        prompt: `${selected} Code for ${code}`,
         max_tokens: 2048,
         temperature: 0.7,
       });
@@ -31,6 +38,14 @@ function App() {
   };
   return (
     <div className="container">
+      <label htmlFor="select">Select an option:</label>
+      <select id="select" value={selected} onChange={handleChange}>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
       <form onSubmit={handleSubmit}>
         <textarea
           className="text-editor"
