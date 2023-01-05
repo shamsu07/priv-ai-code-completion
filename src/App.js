@@ -6,7 +6,7 @@ function App() {
   const [code, setCode] = useState("");
   const [completedCode, setCompletedCode] = useState("");
 
-  const options = ["C", "C++", "Java", "Javascript", "Python"];
+  const options = ["C", "C++", "C#", "Go", "Java", "Javascript", "Python"];
   const [selected, setSelected] = useState(options[0]);
 
   const handleChange = (event) => {
@@ -16,7 +16,7 @@ function App() {
   const { Configuration, OpenAIApi } = require("openai");
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   const openai = new OpenAIApi(configuration);
 
@@ -38,7 +38,7 @@ function App() {
   };
   return (
     <div className="container">
-      <label htmlFor="select">Select an option:</label>
+      <label htmlFor="select">program in</label>
       <select id="select" value={selected} onChange={handleChange}>
         {options.map((option) => (
           <option key={option} value={option}>
@@ -50,9 +50,12 @@ function App() {
         <textarea
           className="text-editor"
           value={code}
+          placeholder="Type something like ... Print the middle node in a linked list "
           onChange={(event) => setCode(event.target.value)}
         />
-        <button type="submit">Complete Code</button>
+        <div className="button-container">
+          <button type="submit">Complete Code</button>
+        </div>
       </form>
       <pre>{completedCode}</pre>
     </div>
