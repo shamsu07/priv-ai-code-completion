@@ -1,23 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  font-family: "Raleway", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    to left,
+    rgb(237, 242, 251),
+    rgb(171, 196, 255)
+  );
 }
 
 .container {
+  align-content: space-around;
+  vertical-align: auto;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .text-editor {
-  background-color: #333;
-  color: #fff;
+  background-color: #fff;
+  color: #252422;
   width: 100%;
-  height: 300px;
+  border-radius: 15px;
+  height: 10%;
   padding: 10px;
   font-size: 14px;
-  font-family: monospace;
+  font-family: "Raleway";
   border: none;
   resize: none;
 }
@@ -26,24 +36,108 @@ body {
   outline: none;
 }
 
+.button-container {
+  margin-bottom: 100px;
+}
+
 button {
-  background-color: #0070f3;
-  border: none;
-  color: #fff;
+  width: fit-content;
+  position: absolute;
+  left: 45%;
+  right: 45%;
+  background-color: #fff;
+  border: 20px;
+  border-color: #0070f3;
+  border-radius: 25px;
+  color: #0070f3;
   padding: 10px 20px;
   font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0052cc;
+  background-color: #0070f3;
+  color: #fff;
 }
 
 pre {
-  background-color: #333;
+  width: 100%;
+  min-height: 500px;
+  border-radius: 5px;
+  background-color: #252422;
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   font-size: 14px;
   font-family: monospace;
   white-space: pre-wrap;
+  resize: vertical;
+  overflow: auto;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.dropdown::before,
+.dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.dropdown::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.dropdown::after {
+  top: 4px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #333;
+}
+
+.dropdown:hover::before {
+  border-color: #999;
+}
+
+.dropdown:hover::after {
+  border-top-color: #999;
+}
+
+.dropdown:active::before {
+  border-color: #333;
+}
+
+.dropdown:active::after {
+  border-top-color: #333;
 }
