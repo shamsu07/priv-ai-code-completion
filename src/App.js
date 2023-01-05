@@ -9,7 +9,7 @@ function App() {
   const { Configuration, OpenAIApi } = require("openai");
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   const openai = new OpenAIApi(configuration);
 
@@ -18,7 +18,7 @@ function App() {
     try {
       const response = await openai.createCompletion({
         model: "text-davinci-002",
-        prompt: `Code for ${code}`,
+        prompt: `Javascript Code for ${code}`,
         max_tokens: 2048,
         temperature: 0.7,
       });
