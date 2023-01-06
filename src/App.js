@@ -33,7 +33,7 @@ function App() {
     } catch (error) {
       console.error(error);
       setCompletedCode("An error occurred");
-      setCompletedCode(error.message);
+      setCompletedCode(`Error: ${error.message}`);
     }
   };
   return (
@@ -50,11 +50,11 @@ function App() {
         <textarea
           className="text-editor"
           value={code}
-          placeholder="Type something like ... Print the middle node in a linked list "
+          placeholder="Type something... "
           onChange={(event) => setCode(event.target.value)}
         />
         <div className="button-container">
-          <button type="submit">Complete Code</button>
+          <button type="submit">Generateenerate Code</button>
         </div>
       </form>
       <pre>{completedCode}</pre>
